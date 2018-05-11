@@ -4,6 +4,8 @@
     Author     : JOSEANTONIODECAMARGO
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Pergunta"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Quiz"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Banco"%>
@@ -58,8 +60,22 @@
                 <tr>
                     <td>
                         <form method="post" action="home.jsp">
-                            <% for(int i = 0; i < Quiz.getDesafio().size(); i++) { %>
-                            <% Pergunta pergunta = Quiz.getDesafio().get(i); %>
+                            <%-- Criando um vetor com número aleatorios  --%>
+                            <% 
+                               ArrayList<Integer> ordemAleatoria = new ArrayList<>();
+                               int count = 0;
+                               while(count < Quiz.getDesafio().size()){
+                                   int aleatorio = (int)(Math.random() * Quiz.getDesafio().size());
+                                   if(!ordemAleatoria.contains(aleatorio)){
+                                       ordemAleatoria.add(aleatorio);
+                                       ++count;
+                                   }
+                               }
+                            %>
+                            
+                            <%-- Lendo as perguntas sorteadas --%>
+                            <% for(int i = 0; i < Quiz.getDesafio().size(); i++) { %>                            
+                            <% Pergunta pergunta = Quiz.getDesafio().get(ordemAleatoria.get(i)); %>
                                 <h3 class="h3_quiz"><%= pergunta.getPergunta() %><h3>
                                     <% for(int j = 0; j < pergunta.getAlternativas().length; j++) { %>
                                     <div class="form-check form-check-inline">
