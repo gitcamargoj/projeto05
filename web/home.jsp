@@ -4,43 +4,42 @@
     Author     : JOSEANTONIODECAMARGO
 --%>
 
+<%@page import="br.com.fatecpg.projeto05.quiz.Pergunta"%>
+<%@page import="br.com.fatecpg.projeto05.quiz.Quiz"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
-
 <!DOCTYPE html>
+
+<%
+    boolean desafiado = false;
+    double resultado = 0.0;
+    if(request.getParameter("desafiado") != null){
+        desafiado = true;
+        int acertou = 0;
+        for(int i = 0; i < Quiz.getDesafio().size(); i++){
+            Pergunta pergunta = Quiz.getDesafio().get(i);
+            String respostaUsuario = request.getParameter(pergunta.getPergunta());
+            if(pergunta.getResposta().equals(respostaUsuario)) acertou++;
+        }
+        resultado = 100.0 * ((double)(acertou) / (double)(Quiz.getDesafio().size()));
+    }
+%>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/css.css">
-        
-        <!-- CSS Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        
-        <!-- Bootstrap Responsive tag -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-        
-        <title>SUPER QUIZ</title>
+        <%@include file="WEB-INF/jspf/bootstrap_gfonts.jspf" %>
+        <title>SUPER QUIZ: Home</title>
     </head>
     <body class="body_color">
-        <!-- Navbar -->
-        <center>
-        <nav>
-            <div>
-                <ul class="navbar-nav mr-auto">
-                    <li>
+
+        <%@include file="WEB-INF/jspf/navbar_inicio.jspf" %>
                         <a href="home.jsp" class="a_navbar a_link_navbar">SUPER QUIZ</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        </center>
+        <%@include file="WEB-INF/jspf/navbar_fim.jspf" %>
     
+        <% if(desafiado) { %>
+        <hr>
+        <h3 class="h3_body"><%= session.getAttribute("nomeUsuario") %>, você teve um acerto total de: <%= resultado %>%</h3>
+        <hr>
+        <% } %>
+        
         <!-- Sistema de login -->
         <br><br><br>
         <center>
@@ -57,7 +56,7 @@
                             <div class="input-group mb-3">
                             <input class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" type="text" name="usuario" value="" required/>
                             <div class="input-group-append">
-                                <input type="submit" class="btn btn-light-secondary" value="Enviar"/>
+                                <input type="submit" class="btn btn-dark btn-lg btn-block fonte_botao" name="enviar" value="Enviar"/>
                             </div>
                             </div>
                         </form>
@@ -66,10 +65,6 @@
             </table>
         </center>
         
-    
-        <!-- JS Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <%@include file="WEB-INF/jspf/bootstrap_js_end_body.jspf" %>
     </body>
 </html>

@@ -27,6 +27,12 @@ and open the template in the editor.
     text-decoration: none;
 }
 
+.a_desafio:hover {
+    color: #FFFFFF;
+    background-color: transparent;
+    text-decoration: none;
+}
+
 .a_link_navbar:active {
     color: #FFFFFF;
     background-color: transparent;
@@ -38,6 +44,12 @@ and open the template in the editor.
     font-size: 270%;
     font-family: 'Bree Serif', serif;
     color: #FFFFFF;
+}
+
+.a_desafio {
+    font-size: 270%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFF00;
 }
 
 /* Fim link SUPER QUIZ */
@@ -62,6 +74,30 @@ and open the template in the editor.
     text-align: center;
 }
 
-h1 {
+.h1_quiz {
+    font-family: 'Bree Serif', serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.h3_quiz {
+    font-size: 180%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFF00;
+    text-align: center;
+}
+
+.alternativas_quiz {
+    font-size: 80%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.hr_cor_linha {
+    color: #FFFFFF;
+}
+
+.fonte_botao {
     font-family: 'Bree Serif', serif;
 }
