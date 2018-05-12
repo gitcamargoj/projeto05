@@ -1,0 +1,103 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 9, 2018, 2:16:12 PM
+    Author     : JOSEANTONIODECAMARGO
+*/
+
+/* Inicio link SUPER QUIZ */
+.a_link_navbar:link {
+    color: #FFFFFF; 
+    background-color: transparent; 
+    text-decoration: none;
+}
+
+.a_link_navbar:visited {
+    color: #FFFFFF;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.a_link_navbar:hover {
+    color: #FFFF00;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.a_desafio:hover {
+    color: #FFFFFF;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.a_link_navbar:active {
+    color: #FFFFFF;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+/* Detalhes da Fonte */
+.a_navbar {
+    font-size: 270%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFFFF;
+}
+
+.a_desafio {
+    font-size: 270%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFF00;
+}
+
+/* Fim link SUPER QUIZ */
+
+/* Cor do fundo */
+.body_color {
+    background-color: #2B803E;
+}
+
+.h3_body {
+    font-size: 180%;
+    font-family: 'Bree Serif', serif;
+    font-variant-caps: all-small-caps;
+    color: #FFFF00;
+    text-align: center;
+}
+
+.p3_body {
+    font-size: 115%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.h1_quiz {
+    font-family: 'Bree Serif', serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.h3_quiz {
+    font-size: 180%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFF00;
+    text-align: center;
+}
+
+.alternativas_quiz {
+    font-size: 80%;
+    font-family: 'Bree Serif', serif;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.hr_cor_linha {
+    color: #FFFFFF;
+}
+
+.fonte_botao {
+    font-family: 'Bree Serif', serif;
+}
