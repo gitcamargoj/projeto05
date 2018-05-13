@@ -4,6 +4,8 @@
     Author     : JOSEANTONIODECAMARGO
 --%>
 
+<%@page import="br.com.fatecpg.projeto05.quiz.Ranking"%>
+<%@page import="br.com.fatecpg.projeto05.quiz.Banco"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Pergunta"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Quiz"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,6 +24,12 @@
         }
         resultado = 100.0 * ((double)(acertou) / (double)(Quiz.getDesafio().size()));
     }
+    
+           
+            Ranking dadosRanking = new Ranking();
+            dadosRanking.setdadosRanking(resultado);
+           
+         
 %>
 <html>
     <head>
