@@ -9,7 +9,7 @@ public class Jogador {
     public static ArrayList<Jogador> jogadores;
 
     public Jogador(String nome){
-        this.setName(nome);
+        name=nome;
     }
 
     public static ArrayList<Jogador> getJogadores() {

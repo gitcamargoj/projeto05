@@ -17,8 +17,7 @@
 <%
     try {
         if(request.getParameter("enviar") != null){
-           Jogador novoUsuario = new Jogador();
-            novoUsuario.setName(nome);
+           Jogador novoUsuario = new Jogador(nome);
             Banco.getJogador().add(novoUsuario);
             
             //response.sendRedirect(request.getRequestURI());
