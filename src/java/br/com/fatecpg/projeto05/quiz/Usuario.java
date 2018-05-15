@@ -11,6 +11,12 @@ package br.com.fatecpg.projeto05.quiz;
  */
 public class Usuario {
     private String nomeUsuario;
+    private String resultadoDesafio;
+
+    public Usuario(String nomeUsuario, String resultadoDesafio) {
+        this.nomeUsuario = nomeUsuario;
+        this.resultadoDesafio = resultadoDesafio;
+    }
 
     public String getNomeUsuario() {
         return nomeUsuario;
@@ -18,5 +24,13 @@ public class Usuario {
 
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
+    }
+    
+    public String getResultadoDesafio() {
+        return resultadoDesafio;
+    }
+
+    public void setResultadoDesafio(String resultadoDesafio) {
+        this.resultadoDesafio = resultadoDesafio;
     }
 }
