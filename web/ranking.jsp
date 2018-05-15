@@ -1,5 +1,6 @@
 
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Ordenar"%>
 <%@page import="java.util.Collections"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Ranking"%>
@@ -11,6 +12,11 @@
 <%@page import="br.com.fatecpg.projeto05.quiz.Banco"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Usuario"%>
 
+<%
+    DecimalFormat ff1 = new DecimalFormat("#");
+    DecimalFormat ff = new DecimalFormat("0");
+    
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,13 +33,19 @@
                         <thead>  <!--//tabela cabeçalho-->
                             
                             <th>Pontuação</th>
-                        </thead>  
-                        <tbody>    <!--//tabela corpo-->
+                        </thead>   <tbody>    <!--//tabela corpo-->
                             <%
                                 ArrayList<Ranking> ranking = Ranking.ranking;
                                 Collections.sort(ranking, new Ordenar());  //coloca em ordem ranking pela pontuaçao
-                                for (Ranking pontos : ranking) {%>
-                       
+                                for (int i = 0; i < Ranking.getRanking().size(); i++) {{%>
+                            <tr>
+                                 <td>
+                                    <%= dadosRanking.getJogador(i).getNome(i)%>
+                                </td>
+                               <td>
+                                   <%= ranking.getdadosRanking(i) %>
+                                </td>
+                            </tr>
                             <%}%>
                         </tbody>
                     </table>
