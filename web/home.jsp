@@ -4,6 +4,7 @@
     Author     : JOSEANTONIODECAMARGO
 --%>
 
+<%@page import="br.com.fatecpg.projeto05.quiz.Usuario"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Ranking"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Banco"%>
 <%@page import="br.com.fatecpg.projeto05.quiz.Pergunta"%>
@@ -31,6 +32,30 @@
            
          
 %>
+<%-- Adicionando no Banco --%>
+<%
+    try {
+        if(request.getParameter("desafiado") != null){
+           Usuario novoUsuario = new Usuario(String.valueOf(session.getAttribute("nomeUsuario")), String.valueOf(resultado));
+            //novoUsuario.setNomeUsuario(nome);
+            Banco.getUsuarios().add(novoUsuario);
+            
+            //response.sendRedirect(request.getRequestURI());
+        }
+        
+        boolean verifica = Banco.getUsuarios().contains(String.valueOf(session.getAttribute("nomeUsuario")));
+        System.out.println(verifica);
+        /*for(int i = 0; i < Banco.getUsuarios().size(); i++){
+            if(!Banco.getUsuarios().contains(nome)){
+                Usuario novoUsuario = new Usuario();
+                novoUsuario.setNomeUsuario(request.getParameter("usuario"));
+                Banco.getUsuarios().add(novoUsuario);
+            }
+        }*/
+    }catch(Exception ex) { %>
+        <script>alert("Preencha corretamente o nome do usuario");</script>
+    <% }
+%>
 <html>
     <head>
         <%@include file="WEB-INF/jspf/bootstrap_gfonts.jspf" %>
@@ -45,6 +70,8 @@
         <% if(desafiado) { %>
         <hr>
         <h3 class="h3_body"><%= session.getAttribute("nomeUsuario") %>, você teve um acerto total de: <%= resultado %>%</h3>
+        <h3 class="h3_body"><%= Banco.getUsuarios().get(0).getNomeUsuario() %>, você teve um acerto total de: <%= Banco.getUsuarios().get(0).getResultadoDesafio() %>%</h3>
+        <h3 class="h3_body"><%= Banco.getUsuarios().get(1).getNomeUsuario() %>, você teve um acerto total de: <%= Banco.getUsuarios().get(1).getResultadoDesafio() %>%</h3>
         <hr>
         <% } %>
         
